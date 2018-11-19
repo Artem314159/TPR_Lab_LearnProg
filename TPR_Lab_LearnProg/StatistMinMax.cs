@@ -1,60 +1,132 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TPR_Lab_LearnProg
 {
-    /// <summary>
-    /// Statistical MinMax criterion
-    /// </summary>
-    public class StatistMinMax
+    public class StatistMinMaxCriterionTask
     {
-        public readonly int m, n;
-        public Number[,] MatrQ { get; private set; }
-        public Number[,] MatrL { get; private set; }
+        private readonly int m, n;
+        private double[,] MatrQ;
+        private double[,] MatrZ;
 
-        public StatistMinMax(Number[,] matrQ)
+        public double[,] GetMatrQ
         {
-            if (matrQ != null)
+            get
             {
-                m = matrQ.GetLength(0);
-                n = matrQ.GetLength(1);
-                MatrQ = new Number[m, n];
-                Array.Copy(matrQ, MatrQ, matrQ.Length);
+                double[,] copyQ = new double[MatrQ.GetLength(0), MatrQ.GetLength(1)];
+                Array.Copy(MatrQ, copyQ, MatrQ.Length);
+                return copyQ;
+            }
+        }
+        public double[,] GetMatrZ
+        {
+            get
+            {
+                double[,] copyL = new double[MatrZ.GetLength(0), MatrZ.GetLength(1)];
+                Array.Copy(MatrZ, copyL, MatrZ.Length);
+                return copyL;
             }
         }
 
-        public bool ZIsCorrect(Number[,] matrZ)
+        public StatistMinMaxCriterionTask(double[,] matrQ, double[,] matrZ)
         {
+            if (matrQ != null && matrZ != null)
+            {
+                m = matrQ.GetLength(0);
+                n = matrQ.GetLength(1);
+                MatrQ = new double[m, n];
+                MatrZ = new double[matrZ.GetLength(0), n];
+                Array.Copy(matrQ, MatrQ, matrQ.Length);
+                Array.Copy(matrZ, MatrZ, matrZ.Length);
+            }
+        }
+
+        public void Calculate()
+        {
+            // Matrix of generalized losses
+            double[,] matrI = StatistMinMax.CreateMatrI(MinMax.CreateMatrL(MatrQ), MatrZ);
+
+        }
+    }
+
+    /// <summary>
+    /// Statistical MinMax criterion
+    /// </summary>
+    public static class StatistMinMax
+    {
+        public static bool ZIsCorrect(double[,] matrZ)
+        {
+            if (matrZ == null) throw new ArgumentNullException("MatrZ");
+
             bool flag = true;
+            int m = matrZ.GetLength(0);
+            int n = matrZ.GetLength(1);
+
             for (int j = 0; j < n; j++)
             {
-                Number checker = 0;
+                double checker = 0;
                 for (int i = 0; i < m; i++)
                 {
                     checker += matrZ[i, j];
                 }
+                if (Math.Abs(checker - 1) > 0.0001) flag = false;
             }
             return flag;
         }
 
         /// <summary>
-        /// Matrix of generalized losses
+        /// Create matrix of generalized losses
         /// </summary>
-        /// <typeparam name="T">IComparable Type</typeparam>
-        /// <param name="matrL">Matrix of losses</param>
-        /// <param name="matrZ">Matrix of probabilities of nature</param>
+        /// <param name="matrL">Matrix of losses [m x n]</param>
+        /// <param name="matrZ">Matrix of probabilities of nature [r x n]</param>
         /// <returns></returns>
-        public Number[,] CreateMatrI(Number[,] matrL, Number[,] matrZ)
+        public static double[,] CreateMatrI(double[,] matrL, double[,] matrZ)
         {
-            if()
-            //Matrix of losses
-            MatrL = MinMax.CreateMatrL(MatrQ);
+            if (matrL == null)
+                throw new ArgumentNullException("MatrL");
+            if (matrZ == null)
+                throw new ArgumentNullException("MatrZ");
+            // L always must have the minimum element equal to zero
+            if (matrL.Cast<double>().Min() != 0)
+                throw new ArgumentException("MatrL isn't correct.", "MatrL");
+            if (matrL.GetLength(1) != matrZ.GetLength(1) || !ZIsCorrect(matrZ))
+                throw new ArgumentException("MatrZ isn't correct.", "MatrZ");
 
-            //Count of statistical decision functions
-            int M = (int)Math.Pow(m, matrZ.GetLength(0));
+            int m = matrL.GetLength(0), n = matrL.GetLength(1), r = matrZ.GetLength(0);
+            // Count of statistical decision functions
+            int M = (int)Math.Pow(m, r);
+
+            // Matrix of generalized losses
+            double[,] matrI = new double[M, n];
+
+            for (int i = 0; i < M; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    matrI[i, j] = 0;
+                    byte[] g = GetStatistDecisionFunc(r, m, i);
+                    //         r-1
+                    //I[i, j]=  Σ  (Z[k, j] * L[g[k], j])
+                    //         k=0
+                    for (int k = 0; k < r; k++)
+                    {
+                        matrI[i, j] += matrZ[k, j] * matrL[g[k], j];
+                    }
+                }
+            }
+            return matrI;
+        }
+
+        private static byte[] GetStatistDecisionFunc(int r, int m, int M)
+        {
+            byte[] g = new byte[r];
+            for (int i = 0; i < r; i++)
+            {
+                g[i] = (byte)(M % m);
+                M /= m;
+            }
+            Array.Reverse(g);
+            return g;
         }
     }
 
@@ -68,13 +140,13 @@ namespace TPR_Lab_LearnProg
         /// </summary>
         /// <param name="matrQ">Matrix of subjective outcomes</param>
         /// <returns></returns>
-        public static Number[,] CreateMatrL(Number[,] matrQ)
+        public static double[,] CreateMatrL(double[,] matrQ)
         {
             int m = matrQ.GetLength(0), n = matrQ.GetLength(1);
-            Number max = matrQ[0, 0];
+            double max = matrQ[0, 0];
 
             //Matrix of losses
-            Number[,] matrL = new Number[matrQ.GetLength(0), matrQ.GetLength(1)];
+            double[,] matrL = new double[matrQ.GetLength(0), matrQ.GetLength(1)];
             foreach (var item in matrQ)
             {
                 if (max < item)
