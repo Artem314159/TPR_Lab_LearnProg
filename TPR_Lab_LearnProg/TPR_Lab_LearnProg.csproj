@@ -52,7 +52,7 @@
     <Compile Include="Forms\CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Number.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="StatistMinMax.cs" />
     <Compile Include="Forms\TrainingForm.cs">
       <SubType>Form</SubType>

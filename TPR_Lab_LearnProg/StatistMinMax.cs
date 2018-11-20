@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace TPR_Lab_LearnProg
@@ -11,21 +12,18 @@ namespace TPR_Lab_LearnProg
 
         public double[,] GetMatrQ
         {
-            get
-            {
-                double[,] copyQ = new double[MatrQ.GetLength(0), MatrQ.GetLength(1)];
-                Array.Copy(MatrQ, copyQ, MatrQ.Length);
-                return copyQ;
-            }
+            get { return CopyMatr(MatrQ); }
         }
         public double[,] GetMatrZ
         {
-            get
-            {
-                double[,] copyL = new double[MatrZ.GetLength(0), MatrZ.GetLength(1)];
-                Array.Copy(MatrZ, copyL, MatrZ.Length);
-                return copyL;
-            }
+            get { return CopyMatr(MatrZ); }
+        }
+
+        private double[,] CopyMatr(double[,] Matr)
+        {
+            double[,] copy = new double[Matr.GetLength(0), Matr.GetLength(1)];
+            Array.Copy(Matr, copy, Matr.Length);
+            return copy;
         }
 
         public StatistMinMaxCriterionTask(double[,] matrQ, double[,] matrZ)
@@ -160,6 +158,54 @@ namespace TPR_Lab_LearnProg
                 }
             }
             return matrL;
+        }
+    }
+
+    public static class JarvisMarch
+    {
+        public static List<Point> JarvisMarch2D(List<Point> startPoints)
+        {
+            if (startPoints == null)
+                throw new ArgumentOutOfRangeException("startPoints");
+            if (startPoints.Count <=3)
+                return startPoints;
+
+            List<Point> ConvexHull = new List<Point>();
+
+            // Get leftmost point
+            Point LeftMostPoint = startPoints.Where(p => p.x == startPoints.Min(min => min.x)).First();
+            Point EndPoint;
+
+            do
+            {
+                ConvexHull.Add(LeftMostPoint);
+                EndPoint = startPoints[0];
+
+                for (int i = 1; i < startPoints.Count; i++)
+                {
+                    if ((LeftMostPoint == EndPoint) || (FindRotation(LeftMostPoint, EndPoint, startPoints[i]) < 0))
+                        EndPoint = startPoints[i];
+                }
+
+                LeftMostPoint = EndPoint;
+
+            }
+            while (EndPoint != ConvexHull[0]);
+
+            return ConvexHull;
+        }
+
+        /// <summary>
+        /// Function defines from what party from a vector AB there is a point C
+        /// </summary>
+        /// <param name="A">Initial point</param>
+        /// <param name="B">Terminal point</param>
+        /// <param name="C">Third point</param>
+        /// <returns>The positive returned value corresponds to a left-hand side, 
+        /// the negative — right.</returns>
+        public static double FindRotation(Point A, Point B, Point C)
+        {
+            return (B.x - A.x) * (C.y - B.y) - (B.y - A.y) * (C.x - B.x);
         }
     }
 }
