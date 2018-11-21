@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPR_Lab_LearnProg.Controls;
 
 namespace TPR_Lab_LearnProg.Forms
 {
@@ -19,6 +20,7 @@ namespace TPR_Lab_LearnProg.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            MainMenuControl mainMenu = new MainMenuControl { Parent = this, Dock = DockStyle.Fill };
 
         }
     }

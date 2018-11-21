@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.mainMenuComponent1 = new TPR_Lab_LearnProg.Components.MainMenuComponent(this.components);
             this.SuspendLayout();
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.IsMdiContainer = true;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(479, 261);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(495, 300);
             this.Name = "MainForm";
             this.Text = "Training program";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -44,5 +48,7 @@
         }
 
         #endregion
+
+        private Components.MainMenuComponent mainMenuComponent1;
     }
 }
