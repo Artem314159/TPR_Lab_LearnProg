@@ -1,4 +1,4 @@
-﻿namespace TPR_Lab_LearnProg
+﻿namespace TPR_Lab_LearnProg.Forms
 {
     partial class TrainingForm
     {
@@ -55,7 +55,7 @@
             chartArea1.AxisY.Minimum = 0D;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(383, 1);
+            this.chart1.Location = new System.Drawing.Point(384, 0);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             series1.BorderWidth = 5;
@@ -85,7 +85,7 @@
             series2.Points.Add(dataPoint12);
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(416, 437);
+            this.chart1.Size = new System.Drawing.Size(416, 450);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -93,8 +93,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.chart1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TrainingForm";
             this.Text = "TrainingForm";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

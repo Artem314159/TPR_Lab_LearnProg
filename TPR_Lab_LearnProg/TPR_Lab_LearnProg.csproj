@@ -52,6 +52,12 @@
     <Compile Include="Forms\CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Point.cs" />
     <Compile Include="StatistMinMax.cs" />
     <Compile Include="Forms\TrainingForm.cs">
@@ -64,6 +70,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TrainingForm.resx">
       <DependentUpon>TrainingForm.cs</DependentUpon>

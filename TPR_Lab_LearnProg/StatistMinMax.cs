@@ -9,6 +9,7 @@ namespace TPR_Lab_LearnProg
         private readonly int m, n;
         private double[,] MatrQ;
         private double[,] MatrZ;
+        private List<Point> MatrI;
 
         public double[,] GetMatrQ
         {
@@ -18,6 +19,10 @@ namespace TPR_Lab_LearnProg
         {
             get { return CopyMatr(MatrZ); }
         }
+        public List<Point> GetMatrI
+        {
+            get { return MatrI.ToList(); }
+        }
 
         private double[,] CopyMatr(double[,] Matr)
         {
@@ -25,10 +30,14 @@ namespace TPR_Lab_LearnProg
             Array.Copy(Matr, copy, Matr.Length);
             return copy;
         }
-
+        
         public StatistMinMaxCriterionTask(double[,] matrQ, double[,] matrZ)
         {
-            if (matrQ != null && matrZ != null)
+            if (matrQ == null || matrQ.Length == 0)
+                throw new ArgumentNullException("matrQ");
+            else if (matrZ == null || matrZ.Length == 0)
+                throw new ArgumentNullException("matrZ");
+            else
             {
                 m = matrQ.GetLength(0);
                 n = matrQ.GetLength(1);
@@ -39,11 +48,34 @@ namespace TPR_Lab_LearnProg
             }
         }
 
-        public void Calculate()
+        public StatistMinMaxCriterionTask()
+        {
+            n = 2;  m = 1;
+            MatrQ = new double[,] { { 0, 0 } };
+            MatrZ = new double[,] { { 1, 1 } };
+        }
+
+        private List<Point> Matr2DToPointList(double[,] Matr)
+        {
+            if (Matr == null) return null;
+            if (Matr.GetLength(1) != 2)
+                throw new ArgumentException("Matr hasn't 2 dimensions.", "Matr");
+            List<Point> result = new List<Point>();
+            int l = Matr.GetLength(0);
+            for (int i = 0; i < l; i++)
+            {
+                result.Add(new Point(Matr[i, 0], Matr[i, 1]));
+            }
+            return result;
+        }
+
+        public List<Point> CalcConvexHull()
         {
             // Matrix of generalized losses
             double[,] matrI = StatistMinMax.CreateMatrI(MinMax.CreateMatrL(MatrQ), MatrZ);
-
+            MatrI = Matr2DToPointList(matrI);
+            List<Point> ConvexHull = JarvisMarch.JarvisMarch2D(MatrI);
+            return ConvexHull;
         }
     }
 
@@ -80,10 +112,8 @@ namespace TPR_Lab_LearnProg
         /// <returns></returns>
         public static double[,] CreateMatrI(double[,] matrL, double[,] matrZ)
         {
-            if (matrL == null)
-                throw new ArgumentNullException("MatrL");
-            if (matrZ == null)
-                throw new ArgumentNullException("MatrZ");
+            if (matrL == null || matrZ == null) return null;
+
             // L always must have the minimum element equal to zero
             if (matrL.Cast<double>().Min() != 0)
                 throw new ArgumentException("MatrL isn't correct.", "MatrL");
@@ -140,6 +170,8 @@ namespace TPR_Lab_LearnProg
         /// <returns></returns>
         public static double[,] CreateMatrL(double[,] matrQ)
         {
+            if (matrQ == null)
+                return null;
             int m = matrQ.GetLength(0), n = matrQ.GetLength(1);
             double max = matrQ[0, 0];
 
@@ -166,7 +198,7 @@ namespace TPR_Lab_LearnProg
         public static List<Point> JarvisMarch2D(List<Point> startPoints)
         {
             if (startPoints == null)
-                throw new ArgumentOutOfRangeException("startPoints");
+                throw new ArgumentNullException("startPoints");
             if (startPoints.Count <=3)
                 return startPoints;
 

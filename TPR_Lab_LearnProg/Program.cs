@@ -16,7 +16,7 @@ namespace TPR_Lab_LearnProg
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CheckForm());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TPR_Lab_LearnProg
 {
     public struct Point : IEquatable<Point>
     {
-        public double x;
-        public double y;
+        public readonly double x;
+        public readonly double y;
 
         public Point(double x1, double y1)
         {
@@ -30,6 +26,11 @@ namespace TPR_Lab_LearnProg
         public static bool operator !=(Point left, Point right)
         {
             return !left.Equals(right);
+        }
+
+        public override string ToString()
+        {
+            return $"Point: {{X = {x}; Y = {y}}}";
         }
     }
 }

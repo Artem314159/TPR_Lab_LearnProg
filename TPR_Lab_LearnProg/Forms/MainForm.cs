@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace TPR_Lab_LearnProg.Forms
 {
-    public partial class TrainingForm : Form
+    public partial class MainForm : Form
     {
-        public TrainingForm()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

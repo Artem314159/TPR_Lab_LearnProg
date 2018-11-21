@@ -1,6 +1,6 @@
 ﻿namespace TPR_Lab_LearnProg.Forms
 {
-    partial class CheckForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // CheckForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CheckForm";
-            this.Text = "CheckForm";
-            this.Load += new System.EventHandler(this.CheckForm_Load);
+            this.IsMdiContainer = true;
+            this.Name = "MainForm";
+            this.Text = "Training program";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
