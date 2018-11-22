@@ -16,5 +16,15 @@ namespace TPR_Lab_LearnProg.Controls
         {
             InitializeComponent();
         }
+
+        private void TrainingBtn_Click(object sender, EventArgs e)
+        {
+            ControlFuncs.ChangeScene("MainMenuControl", "TrainingControl", InitFormType.InitAfterMainMenu);
+        }
+
+        private void CheckKnowBtn_Click(object sender, EventArgs e)
+        {
+            ControlFuncs.ChangeScene("MainMenuControl", "CheckKnowControl", InitFormType.InitAfterMainMenu);
+        }
     }
 }

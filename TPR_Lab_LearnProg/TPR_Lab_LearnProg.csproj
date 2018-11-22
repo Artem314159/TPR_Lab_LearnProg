@@ -46,12 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CheckKnowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckKnowControl.Designer.cs">
+      <DependentUpon>CheckKnowControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MainMenuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\MainMenuControl.Designer.cs">
       <DependentUpon>MainMenuControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TrainingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TrainingControl.Designer.cs">
+      <DependentUpon>TrainingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ControlFuncs.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,8 +75,14 @@
     <Compile Include="StatistMinMax.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\CheckKnowControl.resx">
+      <DependentUpon>CheckKnowControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MainMenuControl.resx">
       <DependentUpon>MainMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TrainingControl.resx">
+      <DependentUpon>TrainingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

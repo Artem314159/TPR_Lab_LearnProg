@@ -44,6 +44,7 @@
             this.TrainingBtn.TabIndex = 0;
             this.TrainingBtn.Text = "Обучение";
             this.TrainingBtn.UseVisualStyleBackColor = true;
+            this.TrainingBtn.Click += new System.EventHandler(this.TrainingBtn_Click);
             // 
             // CheckKnowBtn
             // 
@@ -55,6 +56,7 @@
             this.CheckKnowBtn.TabIndex = 1;
             this.CheckKnowBtn.Text = "Проверить знания";
             this.CheckKnowBtn.UseVisualStyleBackColor = true;
+            this.CheckKnowBtn.Click += new System.EventHandler(this.CheckKnowBtn_Click);
             // 
             // panel1
             // 
