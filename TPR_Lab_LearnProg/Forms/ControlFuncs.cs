@@ -52,14 +52,15 @@ public static class ControlFuncs
 
     internal static void InitAfterMainMenu(this Form form)
     {
-        form.MaximizeBox = true;
-        form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+        //form.MaximizeBox = true;
+        //form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+        form.Size = new System.Drawing.Size(870, 490);
     }
 
     internal static void InitForMainMenu(this Form form)
     {
-        form.MaximizeBox = false;
-        form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        //form.MaximizeBox = false;
+        //form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         form.Size = new System.Drawing.Size(495, 300);
     }
 
