@@ -32,7 +32,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tblLayPnlZ = new System.Windows.Forms.TableLayoutPanel();
             this.tblLayPnlQ = new System.Windows.Forms.TableLayoutPanel();
-            this.RTxtBoxTab1 = new System.Windows.Forms.RichTextBox();
+            this.RTxtBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -74,7 +74,7 @@
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
             this.tabPage1.Controls.Add(this.tblLayPnlZ);
             this.tabPage1.Controls.Add(this.tblLayPnlQ);
-            this.tabPage1.Controls.Add(this.RTxtBoxTab1);
+            this.tabPage1.Controls.Add(this.RTxtBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
@@ -119,20 +119,19 @@
             this.tblLayPnlQ.Size = new System.Drawing.Size(214, 161);
             this.tblLayPnlQ.TabIndex = 9;
             // 
-            // RTxtBoxTab1
+            // RTxtBox1
             // 
-            this.RTxtBoxTab1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.RTxtBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.RTxtBoxTab1.BackColor = System.Drawing.SystemColors.Control;
-            this.RTxtBoxTab1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RTxtBoxTab1.Enabled = false;
-            this.RTxtBoxTab1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RTxtBoxTab1.Location = new System.Drawing.Point(23, 23);
-            this.RTxtBoxTab1.Name = "RTxtBoxTab1";
-            this.RTxtBoxTab1.Size = new System.Drawing.Size(595, 385);
-            this.RTxtBoxTab1.TabIndex = 0;
-            this.RTxtBoxTab1.Text = "Вступление\n   На входе у нас есть матрица Q - матрица полезностей, и матрица Z - " +
-    "матрица степеней доверия.";
+            this.RTxtBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.RTxtBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTxtBox1.Enabled = false;
+            this.RTxtBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RTxtBox1.Location = new System.Drawing.Point(23, 23);
+            this.RTxtBox1.Name = "RTxtBox1";
+            this.RTxtBox1.Size = new System.Drawing.Size(595, 385);
+            this.RTxtBox1.TabIndex = 0;
+            this.RTxtBox1.Text = "";
             // 
             // tabPage2
             // 
@@ -250,7 +249,7 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.RichTextBox RTxtBoxTab1;
+        private System.Windows.Forms.RichTextBox RTxtBox1;
         private System.Windows.Forms.TableLayoutPanel tblLayPnlQ;
         private System.Windows.Forms.TableLayoutPanel tblLayPnlZ;
     }

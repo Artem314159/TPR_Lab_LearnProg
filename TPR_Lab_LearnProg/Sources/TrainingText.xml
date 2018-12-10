@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<main>
+  <tabPage1>
+    <RTxtBox1>
+      <line font_style="Bold" font_size="18" aligment="Center">Вступление</line>
+      <line>
+        &#009;На входе у нас есть матрица Q - матрица полезностей, и матрица Z - матрица степеней доверия.
+        Для дальнейшей работы из матрицы полезностей следует перейти к матрице потерь L по следующей формуле:
+      </line>
+    </RTxtBox1>
+  </tabPage1>
+  <tabPage2>
+    <RTxtBox2>
+      <line font_style="Bold" font_size="18" aligment="Center">Вступление</line>
+      <line>
+      </line>
+    </RTxtBox2>
+  </tabPage2>
+  <tabPage3>
+    <RTxtBox3>
+      <line font_style="Bold" font_size="18" aligment="Center">Вступление</line>
+      <line>
+      </line>
+    </RTxtBox3>
+  </tabPage3>
+  <tabPage4>
+    <RTxtBox4>
+      <line font_style="Bold" font_size="18" aligment="Center">Вступление</line>
+      <line>
+      </line>
+    </RTxtBox4>
+  </tabPage4>
+  <tabPage5>
+    <RTxtBox5>
+      <line font_style="Bold" font_size="18" aligment="Center">Вступление</line>
+      <line>
+      </line>
+    </RTxtBox5>
+  </tabPage5>
+  <tabPage6>
+    <RTxtBox6>
+      <line font_style="Bold" font_size="18" aligment="Center">Вступление</line>
+      <line>
+      </line>
+    </RTxtBox6>
+  </tabPage6>
+</main>
