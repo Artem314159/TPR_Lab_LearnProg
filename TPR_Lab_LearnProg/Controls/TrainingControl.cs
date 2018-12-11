@@ -20,8 +20,6 @@ namespace TPR_Lab_LearnProg.Controls
             { 0.6, 0.2 }
         };
 
-        string xmlDocPath = "../../Sources/TrainingText.xml";
-
         #endregion
 
         public TrainingControl()
@@ -34,14 +32,14 @@ namespace TPR_Lab_LearnProg.Controls
         {
             foreach (TabPage tabPage in TabControl.TabPages)
             {
-                List<RichTextBox> rTxtBoxes = tabPage.Controls.OfType<RichTextBox>().ToList();
+                List<RichTextBox> rTxtBoxes = tabPage.GetAllChildren<RichTextBox>();
                 foreach (RichTextBox rTxtBox in rTxtBoxes)
                 {
-                    rTxtBox.RTxtBoxLoad(tabPage.Name, xmlDocPath);
+                    rTxtBox.LoadFile($"../../Sources/{rTxtBox.Name}.rtf");
+                    rTxtBox.SelectAll();
+                    rTxtBox.SelectionColor = Color.Black;
                 }
             }
-            RTxtBox1.SelectAll();
-            RTxtBox1.SelectionColor = Color.Black;
 
             tblLayPnlQ.InitMatrix("Q", matrQ);
             tblLayPnlZ.InitMatrix("Z", matrZ);

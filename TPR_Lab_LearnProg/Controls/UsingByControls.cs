@@ -60,39 +60,18 @@ namespace TPR_Lab_LearnProg.Controls
                 }
             }
         }
-
-        public static void RTxtBoxLoad(this RichTextBox RTxtBox, string tabPageName, string xmlDocPath)
+        
+        public static List<T> GetAllChildren<T>(this Control control) where T : Control
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(xmlDocPath);
-            RTxtBox.Clear();
-            XmlNodeList xmlLineNodes = xmlDoc.SelectSingleNode($"/main/{tabPageName}/{RTxtBox.Name}").SelectNodes("line");
-            int count = xmlLineNodes.Count;
-            string[] lines = new string[count];
-
-            // not possible in one FOR because RichTextBox has improper property Lines
-            for (int i = 0; i < count; i++)
+            List<T> children = new List<T>();
+            foreach (Control child in control.Controls)
             {
-                lines[i] = xmlLineNodes[i].InnerText.Replace("\r\n       ", "");
+                if(child is T)
+                    children.Add(child as T);
+                if (child.Controls != null && child.Controls.Count != 0)
+                    children.AddRange(child.GetAllChildren<T>());
             }
-            RTxtBox.Lines = lines;
-            for (int i = 0; i < count; i++)
-            {
-                RTxtBox.Select(RTxtBox.GetFirstCharIndexFromLine(i), xmlLineNodes[i].InnerText.Length);
-                RTxtBox.SetStyleFromXml(xmlLineNodes[i].Attributes);
-            }
-        }
-
-        public static void SetStyleFromXml(this RichTextBox RTxtBox, XmlAttributeCollection styles)
-        {
-            string fontName = styles["font_name"] != null ? styles["font_name"].Value : RTxtBox.SelectionFont.OriginalFontName;
-            float fontSize = styles["font_size"] != null ? Convert.ToSingle(styles["font_size"].Value) : RTxtBox.SelectionFont.Size;
-            if (styles["font_style"] == null || !Enum.TryParse(styles["font_style"].Value, out FontStyle fontStyle))
-                fontStyle = RTxtBox.SelectionFont.Style;
-            RTxtBox.SelectionFont = new Font(fontName, fontSize, fontStyle);
-
-            if(styles["aligment"] != null && Enum.TryParse(styles["aligment"].Value, out HorizontalAlignment fontAlignment))
-                RTxtBox.SelectionAlignment = fontAlignment;
+            return children;
         }
     }
 }
