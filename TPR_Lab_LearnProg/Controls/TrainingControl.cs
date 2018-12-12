@@ -43,6 +43,7 @@ namespace TPR_Lab_LearnProg.Controls
 
             tblLayPnlQ.InitMatrix("Q", matrQ);
             tblLayPnlZ.InitMatrix("Z", matrZ);
+            tblLayPnlL.InitMatrix("L", MinMax.CreateMatrL(matrQ));
         }
 
         private void NextBtn_Click(object sender, EventArgs e)

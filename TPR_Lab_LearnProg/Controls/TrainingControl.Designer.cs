@@ -30,12 +30,6 @@
         {
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tblLayPnlZ = new System.Windows.Forms.TableLayoutPanel();
-            this.tblLayPnlQ = new System.Windows.Forms.TableLayoutPanel();
-            this.splitter3 = new System.Windows.Forms.Splitter();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.RTxtBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -44,10 +38,15 @@
             this.NextBtn = new System.Windows.Forms.Button();
             this.PrevBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
+            this.RTxtBox1 = new System.Windows.Forms.RichTextBox();
+            this.tblLayPnlZ = new System.Windows.Forms.TableLayoutPanel();
+            this.tblLayPnlQ = new System.Windows.Forms.TableLayoutPanel();
+            this.tblLayPnlL = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RTxtBox2 = new System.Windows.Forms.RichTextBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -77,9 +76,11 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.splitter3);
-            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.tblLayPnlL);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.tblLayPnlZ);
+            this.tabPage1.Controls.Add(this.tblLayPnlQ);
+            this.tabPage1.Controls.Add(this.RTxtBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
@@ -88,89 +89,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.tblLayPnlZ);
-            this.panel2.Controls.Add(this.tblLayPnlQ);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(641, 20);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 391);
-            this.panel2.TabIndex = 18;
-            // 
-            // tblLayPnlZ
-            // 
-            this.tblLayPnlZ.ColumnCount = 4;
-            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tblLayPnlZ.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tblLayPnlZ.Location = new System.Drawing.Point(0, 247);
-            this.tblLayPnlZ.Name = "tblLayPnlZ";
-            this.tblLayPnlZ.RowCount = 3;
-            this.tblLayPnlZ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
-            this.tblLayPnlZ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
-            this.tblLayPnlZ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
-            this.tblLayPnlZ.Size = new System.Drawing.Size(200, 144);
-            this.tblLayPnlZ.TabIndex = 13;
-            // 
-            // tblLayPnlQ
-            // 
-            this.tblLayPnlQ.ColumnCount = 4;
-            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblLayPnlQ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tblLayPnlQ.Location = new System.Drawing.Point(0, 0);
-            this.tblLayPnlQ.Name = "tblLayPnlQ";
-            this.tblLayPnlQ.RowCount = 4;
-            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
-            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
-            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
-            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblLayPnlQ.Size = new System.Drawing.Size(200, 161);
-            this.tblLayPnlQ.TabIndex = 12;
-            // 
-            // splitter3
-            // 
-            this.splitter3.Enabled = false;
-            this.splitter3.Location = new System.Drawing.Point(638, 20);
-            this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(3, 391);
-            this.splitter3.TabIndex = 17;
-            this.splitter3.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.RTxtBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(20, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 391);
-            this.panel1.TabIndex = 16;
-            // 
-            // RTxtBox1
-            // 
-            this.RTxtBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.RTxtBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RTxtBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RTxtBox1.Enabled = false;
-            this.RTxtBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RTxtBox1.Location = new System.Drawing.Point(0, 0);
-            this.RTxtBox1.Name = "RTxtBox1";
-            this.RTxtBox1.Size = new System.Drawing.Size(618, 391);
-            this.RTxtBox1.TabIndex = 17;
-            this.RTxtBox1.Text = "";
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.RTxtBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(20);
             this.tabPage2.Size = new System.Drawing.Size(861, 431);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
@@ -181,6 +107,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(20);
             this.tabPage3.Size = new System.Drawing.Size(861, 431);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
@@ -191,6 +118,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(20);
             this.tabPage4.Size = new System.Drawing.Size(861, 431);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
@@ -201,6 +129,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 4);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(20);
             this.tabPage5.Size = new System.Drawing.Size(861, 431);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
@@ -211,6 +140,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 4);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(20);
             this.tabPage6.Size = new System.Drawing.Size(861, 431);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "tabPage6";
@@ -251,6 +181,98 @@
             this.ExitBtn.UseVisualStyleBackColor = true;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
+            // RTxtBox1
+            // 
+            this.RTxtBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.RTxtBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTxtBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RTxtBox1.Enabled = false;
+            this.RTxtBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RTxtBox1.Location = new System.Drawing.Point(20, 20);
+            this.RTxtBox1.Name = "RTxtBox1";
+            this.RTxtBox1.Size = new System.Drawing.Size(821, 222);
+            this.RTxtBox1.TabIndex = 19;
+            this.RTxtBox1.Text = "";
+            // 
+            // tblLayPnlZ
+            // 
+            this.tblLayPnlZ.ColumnCount = 4;
+            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tblLayPnlZ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tblLayPnlZ.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tblLayPnlZ.Location = new System.Drawing.Point(615, 242);
+            this.tblLayPnlZ.Name = "tblLayPnlZ";
+            this.tblLayPnlZ.RowCount = 3;
+            this.tblLayPnlZ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
+            this.tblLayPnlZ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
+            this.tblLayPnlZ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
+            this.tblLayPnlZ.Size = new System.Drawing.Size(226, 169);
+            this.tblLayPnlZ.TabIndex = 21;
+            // 
+            // tblLayPnlQ
+            // 
+            this.tblLayPnlQ.ColumnCount = 4;
+            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlQ.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlQ.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tblLayPnlQ.Location = new System.Drawing.Point(20, 242);
+            this.tblLayPnlQ.Name = "tblLayPnlQ";
+            this.tblLayPnlQ.RowCount = 4;
+            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
+            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tblLayPnlQ.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblLayPnlQ.Size = new System.Drawing.Size(206, 169);
+            this.tblLayPnlQ.TabIndex = 20;
+            // 
+            // tblLayPnlL
+            // 
+            this.tblLayPnlL.ColumnCount = 4;
+            this.tblLayPnlL.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlL.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlL.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlL.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblLayPnlL.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tblLayPnlL.Location = new System.Drawing.Point(300, 242);
+            this.tblLayPnlL.Name = "tblLayPnlL";
+            this.tblLayPnlL.RowCount = 4;
+            this.tblLayPnlL.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
+            this.tblLayPnlL.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tblLayPnlL.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tblLayPnlL.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
+            this.tblLayPnlL.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblLayPnlL.Size = new System.Drawing.Size(212, 169);
+            this.tblLayPnlL.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(226, 242);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 169);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "=>";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RTxtBox2
+            // 
+            this.RTxtBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.RTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTxtBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RTxtBox2.Enabled = false;
+            this.RTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RTxtBox2.Location = new System.Drawing.Point(20, 20);
+            this.RTxtBox2.Name = "RTxtBox2";
+            this.RTxtBox2.Size = new System.Drawing.Size(821, 222);
+            this.RTxtBox2.TabIndex = 20;
+            this.RTxtBox2.Text = "";
+            // 
             // TrainingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +287,7 @@
             this.Load += new System.EventHandler(this.TrainingControl_Load);
             this.TabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -283,11 +304,11 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tblLayPnlL;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tblLayPnlZ;
         private System.Windows.Forms.TableLayoutPanel tblLayPnlQ;
-        private System.Windows.Forms.Splitter splitter3;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox RTxtBox1;
+        private System.Windows.Forms.RichTextBox RTxtBox2;
     }
 }
