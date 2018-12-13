@@ -36,14 +36,25 @@ namespace TPR_Lab_LearnProg.Controls
                 foreach (RichTextBox rTxtBox in rTxtBoxes)
                 {
                     rTxtBox.LoadFile($"../../Sources/{rTxtBox.Name}.rtf");
-                    rTxtBox.SelectAll();
-                    rTxtBox.SelectionColor = Color.Black;
+                    int start = 0;
+                    for(int i = 0; i < rTxtBox.Lines.Length; i++)
+                    {
+                        rTxtBox.Select(start, rTxtBox.Lines[i].Length);
+                        // checking if line is math formula
+                        if (string.IsNullOrWhiteSpace(rTxtBox.Lines[i]))
+                        {
+                            rTxtBox.SelectionColor = Color.White;
+                            rTxtBox.SelectionAlignment = HorizontalAlignment.Center;
+                        }
+                        else rTxtBox.SelectionColor = Color.Black;
+                        start += rTxtBox.Lines[i].Length + 1;
+                    }
                 }
             }
 
-            tblLayPnlQ.InitMatrix("Q", matrQ);
-            tblLayPnlZ.InitMatrix("Z", matrZ);
-            tblLayPnlL.InitMatrix("L", MinMax.CreateMatrL(matrQ));
+            tblLayPnlQ1.InitMatrix("Q", matrQ);
+            tblLayPnlZ1.InitMatrix("Z", matrZ);
+            tblLayPnlL1.InitMatrix("L", MinMax.CreateMatrL(matrQ));
         }
 
         private void NextBtn_Click(object sender, EventArgs e)
