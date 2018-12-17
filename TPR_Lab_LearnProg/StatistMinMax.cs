@@ -145,7 +145,7 @@ namespace TPR_Lab_LearnProg
             return matrI;
         }
 
-        private static byte[] GetStatistDecisionFunc(int r, int m, int M)
+        public static byte[] GetStatistDecisionFunc(int r, int m, int M)
         {
             byte[] g = new byte[r];
             for (int i = 0; i < r; i++)

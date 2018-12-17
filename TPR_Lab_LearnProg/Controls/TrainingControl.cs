@@ -35,26 +35,31 @@ namespace TPR_Lab_LearnProg.Controls
                 List<RichTextBox> rTxtBoxes = tabPage.GetAllChildren<RichTextBox>();
                 foreach (RichTextBox rTxtBox in rTxtBoxes)
                 {
-                    rTxtBox.LoadFile($"../../Sources/{rTxtBox.Name}.rtf");
-                    int start = 0;
-                    for(int i = 0; i < rTxtBox.Lines.Length; i++)
+                    try
                     {
-                        rTxtBox.Select(start, rTxtBox.Lines[i].Length);
-                        // checking if line is math formula
-                        if (string.IsNullOrWhiteSpace(rTxtBox.Lines[i]))
+                        rTxtBox.LoadFile($"../../Sources/{rTxtBox.Name}.rtf");
+                        int start = 0;
+                        for (int i = 0; i < rTxtBox.Lines.Length; i++)
                         {
-                            rTxtBox.SelectionColor = Color.White;
-                            rTxtBox.SelectionAlignment = HorizontalAlignment.Center;
+                            rTxtBox.Select(start, rTxtBox.Lines[i].Length);
+                            // checking if line is math formula (line is empty)
+                            if (string.IsNullOrWhiteSpace(rTxtBox.Lines[i]))
+                            {
+                                rTxtBox.SelectionColor = Color.White;
+                                rTxtBox.SelectionAlignment = HorizontalAlignment.Center;
+                            }
+                            else rTxtBox.SelectionColor = Color.Black;
+                            start += rTxtBox.Lines[i].Length + 1;
                         }
-                        else rTxtBox.SelectionColor = Color.Black;
-                        start += rTxtBox.Lines[i].Length + 1;
                     }
+                    catch { }
                 }
             }
 
             tblLayPnlQ1.InitMatrix("Q", matrQ);
             tblLayPnlZ1.InitMatrix("Z", matrZ);
             tblLayPnlL1.InitMatrix("L", MinMax.CreateMatrL(matrQ));
+            tblLayPnlZ2.InitMatrix("Z", matrZ);
         }
 
         private void NextBtn_Click(object sender, EventArgs e)

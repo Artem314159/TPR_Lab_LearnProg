@@ -30,7 +30,6 @@ namespace TPR_Lab_LearnProg.Controls
                 {
                     Label l = new Label()
                     {
-                        //Text = matrA[i - 1, j - 2].ToString(),
                         Font = new Font("Calibri", 12),
                         AutoSize = false,
                         Dock = DockStyle.Fill,
@@ -60,7 +59,48 @@ namespace TPR_Lab_LearnProg.Controls
                 }
             }
         }
-        
+
+        public static void InitGMatrix(this TableLayoutPanel tblLayPnl, int r, int M)
+        {
+            tblLayPnl.Controls.Clear();
+            tblLayPnl.RowStyles.Clear();
+            tblLayPnl.RowCount = r;
+            tblLayPnl.ColumnCount = M;
+            for (int i = 0; i < r; i++)
+            {
+                for (int j = 0; j < M; j++)
+                {
+                    Label l = new Label()
+                    {
+                        Font = new Font("Calibri", 12),
+                        AutoSize = false,
+                        Dock = DockStyle.Fill,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        BorderStyle = BorderStyle.FixedSingle
+                    };
+                    if (i == 0)
+                    {
+                        if(j != 0)
+                        {
+                            l.Text = "g" + j;
+                        }
+                    }
+                    else
+                    {
+                        if (j == 0)
+                        {
+                            l.Text = "z" + i;
+                        }
+                        else
+                        {
+                            l.Text = "α" + StatistMinMax.GetStatistDecisionFunc(r, j, M)[i];
+                        }
+                    }
+                    tblLayPnl.Controls.Add(l, j, i);
+                }
+            }
+        }
+
         public static List<T> GetAllChildren<T>(this Control control) where T : Control
         {
             List<T> children = new List<T>();

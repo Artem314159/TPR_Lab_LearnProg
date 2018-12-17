@@ -36,6 +36,8 @@
             this.tblLayPnlQ1 = new System.Windows.Forms.TableLayoutPanel();
             this.RTxtBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tblLayPnlZ2 = new System.Windows.Forms.TableLayoutPanel();
             this.RTxtBox2 = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -44,11 +46,13 @@
             this.NextBtn = new System.Windows.Forms.Button();
             this.PrevBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
-            this.tblLayPnlZ2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.RTxtBox3_1 = new System.Windows.Forms.RichTextBox();
+            this.tblLayPnlG = new System.Windows.Forms.TableLayoutPanel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -184,6 +188,33 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Green;
+            this.label2.Location = new System.Drawing.Point(510, 245);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 169);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "✓";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tblLayPnlZ2
+            // 
+            this.tblLayPnlZ2.ColumnCount = 4;
+            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tblLayPnlZ2.Location = new System.Drawing.Point(284, 245);
+            this.tblLayPnlZ2.Name = "tblLayPnlZ2";
+            this.tblLayPnlZ2.RowCount = 3;
+            this.tblLayPnlZ2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
+            this.tblLayPnlZ2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
+            this.tblLayPnlZ2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
+            this.tblLayPnlZ2.Size = new System.Drawing.Size(226, 169);
+            this.tblLayPnlZ2.TabIndex = 22;
+            // 
             // RTxtBox2
             // 
             this.RTxtBox2.BackColor = System.Drawing.SystemColors.Control;
@@ -200,6 +231,9 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage3.Controls.Add(this.richTextBox1);
+            this.tabPage3.Controls.Add(this.tblLayPnlG);
+            this.tabPage3.Controls.Add(this.RTxtBox3_1);
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
@@ -277,34 +311,43 @@
             this.ExitBtn.UseVisualStyleBackColor = true;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
-            // tblLayPnlZ2
+            // RTxtBox3_1
             // 
-            this.tblLayPnlZ2.ColumnCount = 4;
-            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tblLayPnlZ2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tblLayPnlZ2.Location = new System.Drawing.Point(20, 242);
-            this.tblLayPnlZ2.Name = "tblLayPnlZ2";
-            this.tblLayPnlZ2.RowCount = 3;
-            this.tblLayPnlZ2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
-            this.tblLayPnlZ2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
-            this.tblLayPnlZ2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
-            this.tblLayPnlZ2.Size = new System.Drawing.Size(226, 169);
-            this.tblLayPnlZ2.TabIndex = 22;
+            this.RTxtBox3_1.BackColor = System.Drawing.SystemColors.Control;
+            this.RTxtBox3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTxtBox3_1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RTxtBox3_1.Enabled = false;
+            this.RTxtBox3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RTxtBox3_1.Location = new System.Drawing.Point(20, 20);
+            this.RTxtBox3_1.Name = "RTxtBox3_1";
+            this.RTxtBox3_1.Size = new System.Drawing.Size(821, 120);
+            this.RTxtBox3_1.TabIndex = 21;
+            this.RTxtBox3_1.Text = "";
             // 
-            // label2
+            // tblLayPnlG
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(246, 242);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 169);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "✓";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tblLayPnlG.ColumnCount = 1;
+            this.tblLayPnlG.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblLayPnlG.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tblLayPnlG.Location = new System.Drawing.Point(20, 140);
+            this.tblLayPnlG.Name = "tblLayPnlG";
+            this.tblLayPnlG.RowCount = 1;
+            this.tblLayPnlG.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblLayPnlG.Size = new System.Drawing.Size(821, 100);
+            this.tblLayPnlG.TabIndex = 22;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox1.Location = new System.Drawing.Point(20, 240);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(821, 140);
+            this.richTextBox1.TabIndex = 23;
+            this.richTextBox1.Text = "";
             // 
             // TrainingControl
             // 
@@ -321,6 +364,7 @@
             this.TabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -345,5 +389,8 @@
         private System.Windows.Forms.RichTextBox RTxtBox2;
         private System.Windows.Forms.TableLayoutPanel tblLayPnlZ2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TableLayoutPanel tblLayPnlG;
+        private System.Windows.Forms.RichTextBox RTxtBox3_1;
     }
 }
