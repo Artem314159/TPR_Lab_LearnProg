@@ -8,6 +8,7 @@ namespace TPR_Lab_LearnProg
     {
         private readonly int m, n;
         private double[,] MatrQ;
+        private double[,] MatrL;
         private double[,] MatrZ;
         private List<Point> MatrI;
 
@@ -15,13 +16,31 @@ namespace TPR_Lab_LearnProg
         {
             get { return CopyMatr(MatrQ); }
         }
+        public double[,] GetMatrL
+        {
+            get
+            {
+                if(MatrL == null)
+                    MatrL = MinMax.CreateMatrL(GetMatrQ);
+                return CopyMatr(MatrL);
+            }
+        }
         public double[,] GetMatrZ
         {
             get { return CopyMatr(MatrZ); }
         }
         public List<Point> GetMatrI
         {
-            get { return MatrI.ToList(); }
+            get
+            {
+                if (MatrI == null)
+                {
+                    // Matrix of generalized losses
+                    double[,] matrI = StatistMinMax.CreateMatrI(GetMatrL, GetMatrZ);
+                    MatrI = Matr2DToPointList(matrI);
+                }
+                return MatrI.ToList();
+            }
         }
 
         private double[,] CopyMatr(double[,] Matr)
@@ -71,10 +90,8 @@ namespace TPR_Lab_LearnProg
 
         public List<Point> CalcConvexHull()
         {
-            // Matrix of generalized losses
-            double[,] matrI = StatistMinMax.CreateMatrI(MinMax.CreateMatrL(MatrQ), MatrZ);
-            MatrI = Matr2DToPointList(matrI);
-            List<Point> ConvexHull = JarvisMarch.JarvisMarch2D(MatrI);
+            List<Point> ConvexHull = JarvisMarch.JarvisMarch2D(GetMatrI);
+            ConvexHull.Add(ConvexHull[0]);
             return ConvexHull;
         }
     }
@@ -205,7 +222,7 @@ namespace TPR_Lab_LearnProg
             List<Point> ConvexHull = new List<Point>();
 
             // Get leftmost point
-            Point LeftMostPoint = startPoints.Where(p => p.x == startPoints.Min(min => min.x)).First();
+            Point LeftMostPoint = startPoints.Where(p => p.X == startPoints.Min(min => min.X)).First();
             Point EndPoint;
 
             do
@@ -237,7 +254,7 @@ namespace TPR_Lab_LearnProg
         /// the negative — right.</returns>
         public static double FindRotation(Point A, Point B, Point C)
         {
-            return (B.x - A.x) * (C.y - B.y) - (B.y - A.y) * (C.x - B.x);
+            return (B.X - A.X) * (C.Y - B.Y) - (B.Y - A.Y) * (C.X - B.X);
         }
     }
 }

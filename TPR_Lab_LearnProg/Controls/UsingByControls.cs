@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 
 namespace TPR_Lab_LearnProg.Controls
@@ -37,9 +39,8 @@ namespace TPR_Lab_LearnProg.Controls
                     };
                     if (i == 0)
                     {
-                        if (j == 1)
-                            continue;
-                        l.Text = "β" + (j - 1);
+                        if (j != 1)
+                            l.Text = "β" + (j - 1);
                     }
                     else
                     {
@@ -60,15 +61,17 @@ namespace TPR_Lab_LearnProg.Controls
             }
         }
 
-        public static void InitGMatrix(this TableLayoutPanel tblLayPnl, int r, int M)
+        public static void InitGMatrix(this TableLayoutPanel tblLayPnl, int r, int m, int M)
         {
             tblLayPnl.Controls.Clear();
             tblLayPnl.RowStyles.Clear();
-            tblLayPnl.RowCount = r;
-            tblLayPnl.ColumnCount = M;
-            for (int i = 0; i < r; i++)
+            tblLayPnl.ColumnStyles.Clear();
+            tblLayPnl.RowCount = r + 1;
+            tblLayPnl.ColumnCount = M + 1;
+            for (int i = 0; i < r + 1; i++)
             {
-                for (int j = 0; j < M; j++)
+                tblLayPnl.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / (r + 1)));
+                for (int j = 0; j < M + 1; j++)
                 {
                     Label l = new Label()
                     {
@@ -76,11 +79,13 @@ namespace TPR_Lab_LearnProg.Controls
                         AutoSize = false,
                         Dock = DockStyle.Fill,
                         TextAlign = ContentAlignment.MiddleCenter,
-                        BorderStyle = BorderStyle.FixedSingle
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(0)
                     };
                     if (i == 0)
                     {
-                        if(j != 0)
+                        tblLayPnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / (M + 1)));
+                        if (j != 0)
                         {
                             l.Text = "g" + j;
                         }
@@ -93,12 +98,82 @@ namespace TPR_Lab_LearnProg.Controls
                         }
                         else
                         {
-                            l.Text = "α" + StatistMinMax.GetStatistDecisionFunc(r, j, M)[i];
+                            l.Text = "α" + (StatistMinMax.GetStatistDecisionFunc(r, m, j - 1)[(i - 1)] + 1);
                         }
                     }
                     tblLayPnl.Controls.Add(l, j, i);
                 }
             }
+        }
+
+        public static void InitIMatrix(this TableLayoutPanel tblLayPnl, List<Point> matrList)
+        {
+            int M = matrList.Count, n = 2;
+            tblLayPnl.Controls.Clear();
+            tblLayPnl.RowStyles.Clear();
+            tblLayPnl.ColumnStyles.Clear();
+            tblLayPnl.RowCount = M + 1;
+            tblLayPnl.ColumnCount = n + 1;
+            for (int i = 0; i < M + 1; i++)
+            {
+                tblLayPnl.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / (M + 1)));
+                for (int j = 0; j < n + 1; j++)
+                {
+                    Label l = new Label()
+                    {
+                        Font = new Font("Calibri", 12),
+                        AutoSize = false,
+                        Dock = DockStyle.Fill,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(0)
+                    };
+                    if (i == 0)
+                    {
+                        tblLayPnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / (n + 1)));
+                        if (j != 0)
+                        {
+                            l.Text = "β" + j;
+                        }
+                    }
+                    else
+                    {
+                        if (j == 0)
+                        {
+                            l.Text = "g" + i;
+                        }
+                        else
+                        {
+                            l.Text = (j == 1 ? matrList[i - 1].X : matrList[i - 1].Y).ToString();
+                        }
+                    }
+                    tblLayPnl.Controls.Add(l, j, i);
+                }
+            }
+        }
+
+        public static void InitPayoffSet(this Chart chart, StatistMinMaxCriterionTask task)
+        {
+            chart.Series.Clear();
+            List<Point> convexHull = task.CalcConvexHull();
+            chart.Series.Add(new Series() {
+                Name = "ConvexHullSeries",
+                ChartType = SeriesChartType.Line,
+                BorderWidth = 5,
+                Color = Color.Black
+            });
+            chart.Series.Add(new Series()
+            {
+                Name = "FullSeries",
+                ChartType = SeriesChartType.Point,
+                MarkerBorderColor = Color.Black,
+                MarkerBorderWidth = 2,
+                MarkerSize = 10,
+                MarkerColor = Color.Lime,
+                MarkerStyle = MarkerStyle.Circle
+            });
+            chart.Series[0].Points.DataBind(convexHull, "X", "Y", "");
+            chart.Series[1].Points.DataBind(task.GetMatrI, "X", "Y", "");
         }
 
         public static List<T> GetAllChildren<T>(this Control control) where T : Control

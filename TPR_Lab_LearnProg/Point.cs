@@ -4,18 +4,18 @@ namespace TPR_Lab_LearnProg
 {
     public struct Point : IEquatable<Point>
     {
-        public readonly double x;
-        public readonly double y;
+        public double X { get; }
+        public double Y { get; }
 
         public Point(double x1, double y1)
         {
-            x = x1;
-            y = y1;
+            X = x1;
+            Y = y1;
         }
 
         public bool Equals(Point other)
         {
-            return this.x == other.x && this.y == other.y;
+            return this.X == other.X && this.Y == other.Y;
         }
 
         public static bool operator ==(Point left, Point right)
@@ -30,7 +30,7 @@ namespace TPR_Lab_LearnProg
 
         public override string ToString()
         {
-            return $"Point: {{X = {x}; Y = {y}}}";
+            return $"Point: {{X = {X}; Y = {Y}}}";
         }
     }
 }

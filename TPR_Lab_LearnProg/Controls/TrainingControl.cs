@@ -53,13 +53,11 @@ namespace TPR_Lab_LearnProg.Controls
                         }
                     }
                     catch { }
+                    rTxtBox.Select(0,0);
                 }
             }
 
-            tblLayPnlQ1.InitMatrix("Q", matrQ);
-            tblLayPnlZ1.InitMatrix("Z", matrZ);
-            tblLayPnlL1.InitMatrix("L", MinMax.CreateMatrL(matrQ));
-            tblLayPnlZ2.InitMatrix("Z", matrZ);
+            InitMatrices();
         }
 
         private void NextBtn_Click(object sender, EventArgs e)
@@ -85,6 +83,18 @@ namespace TPR_Lab_LearnProg.Controls
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             ControlFuncs.ChangeScene("TrainingControl", "MainMenuControl", InitFormType.InitForMainMenu);
+        }
+
+        private void InitMatrices()
+        {
+            StatistMinMaxCriterionTask task = new StatistMinMaxCriterionTask(matrQ, matrZ);
+            tblLayPnlQ1.InitMatrix("Q", matrQ);
+            tblLayPnlZ1.InitMatrix("Z", matrZ);
+            tblLayPnlL1.InitMatrix("L", task.GetMatrL);
+            tblLayPnlZ2.InitMatrix("Z", matrZ);
+            tblLayPnlG.InitGMatrix(2, 3, 9);
+            tblLayPnlI.InitIMatrix(task.GetMatrI);
+            chart1.InitPayoffSet(task);
         }
     }
 }
