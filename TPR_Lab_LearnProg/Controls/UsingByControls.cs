@@ -157,14 +157,14 @@ namespace TPR_Lab_LearnProg.Controls
             chart.Series.Clear();
             List<Point> convexHull = task.CalcConvexHull();
             chart.Series.Add(new Series() {
-                Name = "ConvexHullSeries",
+                //Name = "ConvexHullSeries",
                 ChartType = SeriesChartType.Line,
                 BorderWidth = 5,
                 Color = Color.Black
             });
             chart.Series.Add(new Series()
             {
-                Name = "FullSeries",
+                //Name = "FullSeries",
                 ChartType = SeriesChartType.Point,
                 MarkerBorderColor = Color.Black,
                 MarkerBorderWidth = 2,
@@ -174,6 +174,42 @@ namespace TPR_Lab_LearnProg.Controls
             });
             chart.Series[0].Points.DataBind(convexHull, "X", "Y", "");
             chart.Series[1].Points.DataBind(task.GetMatrI, "X", "Y", "");
+
+            double ratio = chart.Size.Width == 0 ? 0 : chart.Size.Height / (double)chart.Size.Width;
+            chart.ChartAreas[0].AxisX.Minimum = 0;
+            chart.ChartAreas[0].AxisY.Minimum = 0;
+
+            double maxX = convexHull.Where(p => p.X == convexHull.Max(max => max.X)).First().X;
+            double maxY = convexHull.Where(p => p.Y == convexHull.Max(max => max.Y)).First().Y;
+            chart.ChartAreas[0].AxisX.Maximum = Math.Max(maxX, maxY / ratio);
+            chart.ChartAreas[0].AxisY.Maximum = Math.Max(maxX * ratio, maxY);
+
+            double interval = Math.Round(maxX / 5, Math.Max(0, -PowOf10(maxX / 5)));
+            chart.ChartAreas[0].AxisX.Interval = interval;
+            chart.ChartAreas[0].AxisY.Interval = interval;
+        }
+
+        public static int PowOf10(double n)
+        {
+            int res = 0;
+            double absN = Math.Abs(n);
+            if (absN < 1 && absN != 0)
+            {
+                while (absN < 1)
+                {
+                    res--;
+                    absN *= 10;
+                }
+            }
+            else
+            {
+                while (absN >= 10)
+                {
+                    res++;
+                    absN /= 10;
+                }
+            }
+            return res;
         }
 
         public static List<T> GetAllChildren<T>(this Control control) where T : Control
