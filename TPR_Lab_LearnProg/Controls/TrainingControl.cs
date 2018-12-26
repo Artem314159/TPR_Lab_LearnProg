@@ -95,6 +95,7 @@ namespace TPR_Lab_LearnProg.Controls
             tblLayPnlG.InitGMatrix(2, 3, 9);
             tblLayPnlI.InitIMatrix(task.GetMatrI);
             chart1.InitPayoffSet(task);
+            chart2.InitPayoffSet(task);
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tblLayPnlL1 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,12 +54,16 @@
             this.NextBtn = new System.Windows.Forms.Button();
             this.PrevBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.RTxtBox5 = new System.Windows.Forms.RichTextBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
@@ -345,6 +350,8 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage5.Controls.Add(this.chart2);
+            this.tabPage5.Controls.Add(this.RTxtBox5);
             this.tabPage5.Location = new System.Drawing.Point(4, 4);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage5.Name = "tabPage5";
@@ -400,6 +407,33 @@
             this.ExitBtn.UseVisualStyleBackColor = true;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
+            // chart2
+            // 
+            this.chart2.BackColor = System.Drawing.Color.Transparent;
+            this.chart2.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart2.Location = new System.Drawing.Point(20, 111);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(821, 300);
+            this.chart2.TabIndex = 25;
+            this.chart2.Text = "chart2";
+            // 
+            // RTxtBox5
+            // 
+            this.RTxtBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.RTxtBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTxtBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RTxtBox5.Enabled = false;
+            this.RTxtBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RTxtBox5.Location = new System.Drawing.Point(20, 20);
+            this.RTxtBox5.Name = "RTxtBox5";
+            this.RTxtBox5.Size = new System.Drawing.Size(821, 91);
+            this.RTxtBox5.TabIndex = 24;
+            this.RTxtBox5.Text = "";
+            // 
             // TrainingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +452,8 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,5 +484,7 @@
         private System.Windows.Forms.TableLayoutPanel tblLayPnlI;
         private System.Windows.Forms.RichTextBox RTxtBox4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.RichTextBox RTxtBox5;
     }
 }
