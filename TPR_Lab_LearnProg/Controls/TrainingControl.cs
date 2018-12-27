@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace TPR_Lab_LearnProg.Controls
 {
@@ -96,6 +97,7 @@ namespace TPR_Lab_LearnProg.Controls
             tblLayPnlI.InitIMatrix(task.GetMatrI);
             chart1.InitPayoffSet(task);
             chart2.InitPayoffSet(task);
+            chart2.InitTaskSolution(task);
         }
     }
 }

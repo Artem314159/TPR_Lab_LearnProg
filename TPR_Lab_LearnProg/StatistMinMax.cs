@@ -6,12 +6,15 @@ namespace TPR_Lab_LearnProg
 {
     public class StatistMinMaxCriterionTask
     {
+        #region Private fields
         private readonly int m, n;
         private double[,] MatrQ;
         private double[,] MatrL;
         private double[,] MatrZ;
         private List<Point> MatrI;
+        #endregion
 
+        #region Matrix getters
         public double[,] GetMatrQ
         {
             get { return CopyMatr(MatrQ); }
@@ -49,6 +52,7 @@ namespace TPR_Lab_LearnProg
             Array.Copy(Matr, copy, Matr.Length);
             return copy;
         }
+        #endregion
         
         public StatistMinMaxCriterionTask(double[,] matrQ, double[,] matrZ)
         {
@@ -157,6 +161,7 @@ namespace TPR_Lab_LearnProg
                     {
                         matrI[i, j] += matrZ[k, j] * matrL[g[k], j];
                     }
+                    matrI[i, j] = Math.Round(matrI[i, j], 3);
                 }
             }
             return matrI;
@@ -207,6 +212,48 @@ namespace TPR_Lab_LearnProg
                 }
             }
             return matrL;
+        }
+
+        public static double[] GetSolution(List<Point> convexHull, out Point point)
+        {
+            int endInd = convexHull.IndexOf(convexHull.Where(p => p.Y == convexHull.Min(_ => _.Y)).First());
+            double[] pointsValues = new double[endInd + 1];
+            double[] segmentValues = new double[endInd];
+            for (int i = 0; i < endInd + 1; i++)
+            {
+                pointsValues[i] = 0.5 * (convexHull[i].X + convexHull[i].Y + Math.Abs(convexHull[i].X - convexHull[i].Y));
+            }
+            double[] pList = new double[endInd];
+            for (int i = 0; i < endInd; i++)
+            {
+                pList[i] = (convexHull[i + 1].Y - convexHull[i + 1].X) /
+                    (convexHull[i].X - convexHull[i].Y - convexHull[i + 1].X + convexHull[i + 1].Y);
+                if (pList[i] >= 0 && pList[i] <= 1)
+                {
+                    segmentValues[i] = convexHull[i].X * pList[i] + convexHull[i + 1].X * (1 - pList[i]);
+                }
+                else
+                {
+                    segmentValues[i] = 1d / 0;
+                }
+            }
+            if (pointsValues.Min() <= segmentValues.Min())
+            {
+                point = new Point(Math.Round(pointsValues.Min(), 3), Math.Round(pointsValues.Min(), 3));
+                double[] res = new double[endInd + 1];
+                int ind = Array.FindIndex(pointsValues, _ => _ == pointsValues.Min());
+                res[ind] = 1;
+                return res;
+            }
+            else
+            {
+                point = new Point(Math.Round(segmentValues.Min(), 3), Math.Round(segmentValues.Min(), 3));
+                double[] res = new double[endInd + 1];
+                int ind = Array.FindIndex(segmentValues, _ => _ == segmentValues.Min());
+                res[ind] = pList[ind];
+                res[ind + 1] = 1 - pList[ind];
+                return res;
+            }
         }
     }
 

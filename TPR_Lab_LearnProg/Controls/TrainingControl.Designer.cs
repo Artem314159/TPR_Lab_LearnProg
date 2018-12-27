@@ -50,12 +50,11 @@
             this.RTxtBox4 = new System.Windows.Forms.RichTextBox();
             this.tblLayPnlI = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.RTxtBox5 = new System.Windows.Forms.RichTextBox();
             this.NextBtn = new System.Windows.Forms.Button();
             this.PrevBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.RTxtBox5 = new System.Windows.Forms.RichTextBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -78,7 +77,6 @@
             this.TabControl.Controls.Add(this.tabPage3);
             this.TabControl.Controls.Add(this.tabPage4);
             this.TabControl.Controls.Add(this.tabPage5);
-            this.TabControl.Controls.Add(this.tabPage6);
             this.TabControl.ItemSize = new System.Drawing.Size(0, 1);
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Margin = new System.Windows.Forms.Padding(0);
@@ -102,7 +100,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage1.Size = new System.Drawing.Size(861, 431);
+            this.tabPage1.Size = new System.Drawing.Size(864, 431);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -144,7 +142,7 @@
             this.tblLayPnlZ1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblLayPnlZ1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblLayPnlZ1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tblLayPnlZ1.Location = new System.Drawing.Point(615, 242);
+            this.tblLayPnlZ1.Location = new System.Drawing.Point(618, 242);
             this.tblLayPnlZ1.Name = "tblLayPnlZ1";
             this.tblLayPnlZ1.RowCount = 3;
             this.tblLayPnlZ1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
@@ -181,7 +179,7 @@
             this.RTxtBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RTxtBox1.Location = new System.Drawing.Point(20, 20);
             this.RTxtBox1.Name = "RTxtBox1";
-            this.RTxtBox1.Size = new System.Drawing.Size(821, 222);
+            this.RTxtBox1.Size = new System.Drawing.Size(824, 222);
             this.RTxtBox1.TabIndex = 19;
             this.RTxtBox1.Text = "";
             // 
@@ -195,7 +193,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage2.Size = new System.Drawing.Size(861, 431);
+            this.tabPage2.Size = new System.Drawing.Size(873, 431);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -204,7 +202,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(794, 128);
+            this.label2.Location = new System.Drawing.Point(806, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 169);
             this.label2.TabIndex = 23;
@@ -219,7 +217,7 @@
             this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblLayPnlZ2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tblLayPnlZ2.Location = new System.Drawing.Point(562, 128);
+            this.tblLayPnlZ2.Location = new System.Drawing.Point(574, 128);
             this.tblLayPnlZ2.Name = "tblLayPnlZ2";
             this.tblLayPnlZ2.RowCount = 3;
             this.tblLayPnlZ2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
@@ -251,7 +249,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage3.Size = new System.Drawing.Size(861, 431);
+            this.tabPage3.Size = new System.Drawing.Size(870, 431);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             // 
@@ -264,7 +262,7 @@
             this.RTxtBox3_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RTxtBox3_2.Location = new System.Drawing.Point(20, 198);
             this.RTxtBox3_2.Name = "RTxtBox3_2";
-            this.RTxtBox3_2.Size = new System.Drawing.Size(821, 213);
+            this.RTxtBox3_2.Size = new System.Drawing.Size(830, 213);
             this.RTxtBox3_2.TabIndex = 23;
             this.RTxtBox3_2.Text = "";
             // 
@@ -278,7 +276,7 @@
             this.tblLayPnlG.Name = "tblLayPnlG";
             this.tblLayPnlG.RowCount = 1;
             this.tblLayPnlG.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblLayPnlG.Size = new System.Drawing.Size(821, 100);
+            this.tblLayPnlG.Size = new System.Drawing.Size(830, 100);
             this.tblLayPnlG.TabIndex = 22;
             // 
             // RTxtBox3_1
@@ -290,7 +288,7 @@
             this.RTxtBox3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RTxtBox3_1.Location = new System.Drawing.Point(20, 20);
             this.RTxtBox3_1.Name = "RTxtBox3_1";
-            this.RTxtBox3_1.Size = new System.Drawing.Size(821, 78);
+            this.RTxtBox3_1.Size = new System.Drawing.Size(830, 78);
             this.RTxtBox3_1.TabIndex = 21;
             this.RTxtBox3_1.Text = "";
             // 
@@ -304,7 +302,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage4.Size = new System.Drawing.Size(861, 431);
+            this.tabPage4.Size = new System.Drawing.Size(867, 431);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             // 
@@ -318,7 +316,7 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(161, 111);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(680, 300);
+            this.chart1.Size = new System.Drawing.Size(686, 300);
             this.chart1.TabIndex = 23;
             this.chart1.Text = "chart1";
             // 
@@ -331,7 +329,7 @@
             this.RTxtBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RTxtBox4.Location = new System.Drawing.Point(161, 20);
             this.RTxtBox4.Name = "RTxtBox4";
-            this.RTxtBox4.Size = new System.Drawing.Size(680, 91);
+            this.RTxtBox4.Size = new System.Drawing.Size(686, 91);
             this.RTxtBox4.TabIndex = 22;
             this.RTxtBox4.Text = "";
             // 
@@ -356,20 +354,36 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage5.Size = new System.Drawing.Size(861, 431);
+            this.tabPage5.Size = new System.Drawing.Size(864, 431);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             // 
-            // tabPage6
+            // chart2
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage6.Location = new System.Drawing.Point(4, 4);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(20);
-            this.tabPage6.Size = new System.Drawing.Size(861, 431);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
+            this.chart2.BackColor = System.Drawing.Color.Transparent;
+            this.chart2.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart2.Location = new System.Drawing.Point(329, 20);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(515, 391);
+            this.chart2.TabIndex = 25;
+            this.chart2.Text = "chart2";
+            // 
+            // RTxtBox5
+            // 
+            this.RTxtBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.RTxtBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTxtBox5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RTxtBox5.Enabled = false;
+            this.RTxtBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RTxtBox5.Location = new System.Drawing.Point(20, 20);
+            this.RTxtBox5.Name = "RTxtBox5";
+            this.RTxtBox5.Size = new System.Drawing.Size(309, 391);
+            this.RTxtBox5.TabIndex = 24;
+            this.RTxtBox5.Text = "";
             // 
             // NextBtn
             // 
@@ -407,33 +421,6 @@
             this.ExitBtn.UseVisualStyleBackColor = true;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
-            // chart2
-            // 
-            this.chart2.BackColor = System.Drawing.Color.Transparent;
-            this.chart2.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart2.Location = new System.Drawing.Point(20, 111);
-            this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(821, 300);
-            this.chart2.TabIndex = 25;
-            this.chart2.Text = "chart2";
-            // 
-            // RTxtBox5
-            // 
-            this.RTxtBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.RTxtBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RTxtBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RTxtBox5.Enabled = false;
-            this.RTxtBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RTxtBox5.Location = new System.Drawing.Point(20, 20);
-            this.RTxtBox5.Name = "RTxtBox5";
-            this.RTxtBox5.Size = new System.Drawing.Size(821, 91);
-            this.RTxtBox5.TabIndex = 24;
-            this.RTxtBox5.Text = "";
-            // 
             // TrainingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,7 +454,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TableLayoutPanel tblLayPnlL1;

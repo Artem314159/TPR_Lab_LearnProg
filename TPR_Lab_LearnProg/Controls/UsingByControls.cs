@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
+using static System.Windows.Forms.Control;
 
 namespace TPR_Lab_LearnProg.Controls
 {
@@ -189,6 +190,46 @@ namespace TPR_Lab_LearnProg.Controls
             chart.ChartAreas[0].AxisY.Interval = interval;
         }
 
+        public static void InitTaskSolution(this Chart chart, StatistMinMaxCriterionTask task)
+        {
+            chart.Series.Add(new Series()
+            {
+                ChartType = SeriesChartType.Line,
+                BorderWidth = 5,
+                BorderDashStyle = ChartDashStyle.Dash,
+                Color = Color.Black
+            });
+            chart.Series[chart.Series.Count - 1].Points.DataBindXY(
+                new double[] { 0, Math.Max(chart.Width, chart.Height) },
+                new double[] { 0, Math.Max(chart.Width, chart.Height) });
+
+            chart.Series.Add(new Series()
+            {
+                ChartType = SeriesChartType.Line,
+                BorderWidth = 5,
+                BorderDashStyle = ChartDashStyle.Dash,
+                Color = Color.Black
+            });
+            double[] taskSolution = MinMax.GetSolution(task.CalcConvexHull(), out Point taskPoint);
+            chart.Series[chart.Series.Count - 1].Points.DataBindXY(
+                new double[] { 0, taskPoint.X, taskPoint.X },
+                new double[] { taskPoint.Y, taskPoint.Y, 0 });
+
+            chart.Series.Add(new Series()
+            {
+                ChartType = SeriesChartType.Point,
+                MarkerBorderColor = Color.Black,
+                MarkerBorderWidth = 2,
+                MarkerSize = 10,
+                MarkerColor = Color.Yellow,
+                MarkerStyle = MarkerStyle.Circle
+            });
+            int ind = chart.Series[chart.Series.Count - 1].Points.AddXY(taskPoint.X, taskPoint.Y);
+            DataPoint point = chart.Series[chart.Series.Count - 1].Points[ind];
+            point.Label = $"({taskPoint.X}, {taskPoint.Y})";
+            point.LabelBackColor = Color.White;
+        }
+
         public static int PowOf10(double n)
         {
             int res = 0;
@@ -224,5 +265,96 @@ namespace TPR_Lab_LearnProg.Controls
             }
             return children;
         }
+
+        public static void CreateMatr(this TableLayoutPanel tblLayPnl, out double[,] matr)
+        {
+            matr = new double[tblLayPnl.RowCount - 1, tblLayPnl.ColumnCount - 1];
+            for (int i = 1; i < tblLayPnl.RowCount; i++)
+            {
+                for (int j = 1; j < tblLayPnl.ColumnCount; j++)
+                {
+                    matr[i - 1, j - 1] = Convert.ToDouble(tblLayPnl.GetControlFromPosition(j, i).Text);
+                }
+            }
+        }
+
+        public static void NUD_ValueChanged(this TableLayoutPanel tblLayPnl, int value, string text, bool onlyLabels = false)
+        {
+            int prevRowCount = tblLayPnl.RowCount;
+            tblLayPnl.RowCount = value + 1;
+            if (prevRowCount < tblLayPnl.RowCount)
+            {
+                for (int i = prevRowCount; i < tblLayPnl.RowCount; i++)
+                {
+                    tblLayPnlAddCustomRow(tblLayPnl, i, text, onlyLabels);
+                }
+                SetControlsSettings(tblLayPnl.Controls);
+            }
+            else
+            {
+                for (int i = tblLayPnl.RowCount; i < prevRowCount; i++)
+                {
+                    tblLayPnlDeleteRow(tblLayPnl);
+                }
+            }
+        }
+
+        public static void tblLayPnlAddCustomRow(this TableLayoutPanel tblLayPnl, int i, string text, bool onlyLabels = false)
+        {
+            tblLayPnl.RowStyles.Add(new RowStyle(SizeType.Absolute, 50));
+            tblLayPnl.Height += 50;
+            tblLayPnl.Controls.Add(new Label() { Text = text + i }, 0, i);
+            if (onlyLabels)
+            {
+                tblLayPnl.Controls.Add(new Label() { Text = "" }, 1, i);
+                tblLayPnl.Controls.Add(new Label() { Text = "" }, 2, i);
+            }
+            else
+            {
+                Control c = new TextBox() { Text = "0" };
+                c.Validating += TxtToNumber;
+                tblLayPnl.Controls.Add(c, 1, i);
+                c = new TextBox() { Text = "0" };
+                c.Validating += TxtToNumber;
+                tblLayPnl.Controls.Add(c, 2, i);
+            }
+        }
+
+        public static void tblLayPnlDeleteRow(this TableLayoutPanel tblLayPnl)
+        {
+            int last = tblLayPnl.RowStyles.Count - 1;
+            tblLayPnl.RowStyles.RemoveAt(last);
+            tblLayPnl.Height -= 50;
+            for (int i = 0; i < tblLayPnl.ColumnCount; i++)
+            {
+                tblLayPnl.Controls.Remove(tblLayPnl.GetControlFromPosition(i, last));
+            }
+        }
+
+        public static void SetControlsSettings(ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                if (control is Label)
+                    (control as Label).AutoSize = false;
+                control.Dock = DockStyle.Fill;
+            }
+        }
+
+        public static void TxtToNumber(object sender, EventArgs e)
+        {
+            TextBox txtBox = sender as TextBox;
+            string text;
+            try
+            {
+                text = Convert.ToDouble(txtBox.Text).ToString();
+            }
+            catch (Exception)
+            {
+                text = "0";
+            }
+            txtBox.Text = text;
+        }
+
     }
 }
